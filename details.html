@@ -11,7 +11,7 @@
     </div>
 </body>
 <script>
-    let app=`<p>${data1["language"]}</p>`
-    container+= app
+   fetch(`https://api.tvmaze.com/shows/1?embed[]=seasons&embed[]=cast`)
+   .then(res=>console.log(res))
 </script>
 </html>
