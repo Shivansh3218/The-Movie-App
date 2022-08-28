@@ -29,12 +29,12 @@
         fetch(`https://api.tvmaze.com/search/shows?q=${searchbox.value}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 for (let i = 0; i < data.length; i++) {
                     let data1 = data[i]["show"]
-                   var html = `
+                   let html = `
             <div class ="wrapper">
-            <div class="image"><img src="${data1["image"]["original"]}" alt=""></div>
+            <div class="image"><img src="${data1["image"]["original"]}" ></div>
 
             <h2>${data1["name"]}</h2>
 
@@ -42,8 +42,7 @@
            
             <p>${data1["language"]}</p>
 
-            <a href="${data1["url"]}"><button class = "know">Show-Details</button></a> 
-          
+            <a href="${data1["url"]}"><button class = "know">Show-Details</button>
          
         </div> 
            `
