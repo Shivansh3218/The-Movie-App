@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>The Movie App</h1>
+    </header>
+    <section>
+        <input type="text" placeholder="Enter The Movie Name">
+        <button class="search">Search</button>
+    </section>
+    <div class="name"></div>
+
+</body>
+<script>
+    let searchbox = document.querySelector("input")
+    let btn = document.querySelector("button")
+    let nameBox = document.querySelector(".name")
+    btn.addEventListener("click", function () {
+        nameBox.innerHTML=""
+        fetch(`https://api.tvmaze.com/search/shows?q=${searchbox.value}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                for (let i = 0; i < data.length; i++) {
+                    let data1 = data[i]["show"]
+                   var html = `
+            <div class ="wrapper">
+            <div class="image"><img src="${data1["image"]["original"]}" alt=""></div>
+
+            <h2>${data1["name"]}</h2>
+
+            <p>${data1["premiered"]}</p>
+           
+            <p>${data1["language"]}</p>
+
+            <a href="${data1["url"]}"><button class = "know">Show-Details</button></a> 
+          
+         
+        </div> 
+           `
+           nameBox.innerHTML += html
+                } 
+            }) 
+            
+    })
+   
+
+</script>
+
+</html>
+
+
+<!-- <a href="details.html"><button class = "know">Show-Details</button></a>
+</div> -->
+
+<!-- <a href="${data1["url"]}"><button class = "know">Show-Details</button></a> -->
