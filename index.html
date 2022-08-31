@@ -22,6 +22,7 @@
 </body>
 <script>
     let searchbox = document.querySelector("input")
+    let searchitem= searchbox.value
     let btn = document.querySelector("button")
     let nameBox = document.querySelector(".name")
     btn.addEventListener("click", function () {
@@ -42,7 +43,7 @@
            
             <p>${data1["language"]}</p>
 
-            <a href="${data1["url"]}"><button class = "know">Show-Details</button>
+            <a href="details.html"><button class = "know">Show-Details</button></a>
          
         </div> 
            `
@@ -51,8 +52,7 @@
             }) 
             
     })
-   
-window.sessionStorage
+    localStorage.setItem("name", "searchitem")
 </script>
 
 </html>
