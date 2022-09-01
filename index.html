@@ -14,7 +14,7 @@
         <h1>The Movie App</h1>
     </header>
     <section>
-        <input type="text" placeholder="Enter The Movie Name" value="Thrones">
+        <input type="text" placeholder="Enter The Movie Name" >
         <button class="search">Search</button>
     </section>
     <div class="name"></div>
@@ -60,6 +60,7 @@
            })
                 } 
             }) 
+            .catch(err=>{ console.log("error",err)})
             
     })
   
