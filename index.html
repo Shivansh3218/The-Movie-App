@@ -14,7 +14,7 @@
         <h1>The Movie App</h1>
     </header>
     <section>
-        <input type="text" placeholder="Enter The Movie Name" >
+        <input type="text" placeholder="Enter The Movie Name" value="throne">
         <button class="search">Search</button>
     </section>
     <div class="name"></div>
@@ -30,7 +30,7 @@
         fetch(`https://api.tvmaze.com/search/shows?q=${searchbox.value}`)       
             .then(response => response.json())
             .then(data => {
-                // console.log(data)
+                console.log(data)
                 
                 for (let i = 0; i < data.length; i++) {
                     let data1 = data[i]["show"]
@@ -52,9 +52,9 @@
            nameBox.addEventListener("click",(e)=>{
 
             if(e.target.id==data[i].score){
-                sessionStorage.setItem("data", JSON.stringify(data[i]))
+                sessionStorage.setItem("transferdata", JSON.stringify(data[i]))
                 let data2 = sessionStorage.setItem("data",JSON.stringify(data[i]))
-                console.log(data2)
+                // console.log(data2)
             }
         
            })
